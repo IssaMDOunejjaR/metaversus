@@ -2,7 +2,7 @@ version: "3.9"
 services:
   client:
     container_name: "metaversus-client"
-    image: iounejja/node:16.13.1-alpine
+    image: custom-node-alpine
     volumes:
       - ./:/var/www/
     networks:
