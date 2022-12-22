@@ -33,7 +33,7 @@ jobs:
                   username: ${{ secrets.USERNAME }}
                   password: ${{ secrets.PASSWORD }}
                   source: '.'
-                  target: '/home/${{ secrets.USERNAME }}/home-lab/websites/${{ github.events.repository.name }}'
+                  target: '/home/${{ secrets.USERNAME }}/home-lab/websites/${{ github.event.repository.name }}'
             - name: SSH into host
               uses: appleboy/ssh-action@master
               with:
@@ -41,6 +41,6 @@ jobs:
                   username: ${{ secrets.USERNAME }}
                   password: ${{ secrets.PASSWORD }}
                   script: |
-                      cd /home/${{ secrets.USERNAME }}/home-lab/websites/${{ github.events.repository.name }}
+                      cd /home/${{ secrets.USERNAME }}/home-lab/websites/${{ github.event.repository.name }}
                       echo y | docker compose rm -s -v client
                       docker compose up --build -d client
