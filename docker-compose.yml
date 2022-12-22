@@ -3,6 +3,8 @@ services:
   client:
     container_name: "metaversus-client"
     image: iounejja/node:16.13.1-alpine
+    volumes:
+      - ./:/var/www/
     networks:
       - homelab
     labels:
